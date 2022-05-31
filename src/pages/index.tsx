@@ -12,10 +12,20 @@ export default function Home() {
     new Client('Daniel', 19, 'Daniel@gmail', '4'),
   ]
 
+  //Selecionar um cliente
+  function selectClient(client: Client) {
+    console.log(client.name)
+  }
+
+  //Quando um cliente for excluido
+  function deleteClient(client: Client) {
+    console.log(`Excluir: ${client.name} `)
+  }
+
   return (
     <div className={styles.index}>
       <Layout title="Cadastro Simples">
-        <Table clients={clients}></Table>
+        <Table clients={clients} selectClient={selectClient} deleteClient={deleteClient}></Table>
       </Layout>
     </div>
   )

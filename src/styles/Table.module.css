@@ -6,7 +6,7 @@
 }
 
 .table thead{
-    background-image: linear-gradient(to right, #a887c4, rgb(78, 37, 88));
+    background-color: #36304a;
     color: #f1f0f0;
 }
 
@@ -16,10 +16,6 @@
     padding: 10px;
 }
 
-.table th:nth-last-child() {
-    text-align: center;
-}
-
 .table button {
     display: flex;
     justify-content: center;
@@ -27,16 +23,30 @@
     border-radius: 100%;
     padding: 5px;
     margin: 5px;
+    
+    transform: scale(1);
 }
 
 .table button:hover {
-    background-color: white;
+    color: white;
+    transform: scale(1.2);
+    border-radius: 50%;
+    transition: 0.3s cubic-bezier(.95, .32, .37, 1.21);
 }
 
+
 .table .btnEdition {
-    color: green ;
+    color: #7AD578 ;
+}
+
+.table .btnEdition:hover {
+    background-color: #7AD578;
 }
 
 .table .btnTrash {
-    color: red;
+    color: #D66363;
+}
+
+.table .btnTrash:hover {
+    background-color: #D66363;
 }
