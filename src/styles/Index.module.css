@@ -1,0 +1,9 @@
+.index {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+
+    background-image: linear-gradient(to top left, #79abcc, #8286c7 );
+    color: white;
+}
