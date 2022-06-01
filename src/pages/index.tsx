@@ -1,3 +1,4 @@
+import Button from '../components/Button'
 import Layout from '../components/Layout'
 import Table from '../components/Table'
 import Client from '../core/Client'
@@ -25,8 +26,10 @@ export default function Home() {
   return (
     <div className={styles.index}>
       <Layout title="Cadastro Simples">
+        <div style={{display: 'flex', justifyContent: 'flex-end'}}><Button>Novo Cliente</Button></div>
         <Table clients={clients} selectClient={selectClient} deleteClient={deleteClient}></Table>
       </Layout>
+      
     </div>
   )
 }
