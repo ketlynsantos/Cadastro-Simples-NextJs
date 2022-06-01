@@ -7,19 +7,10 @@
     color: black;
 }
 
-.layout div {
-    background-color: white;
-
-    border-top-right-radius: 6px;
-    border-top-left-radius: 6px;
-}
-
 .layout .children {
     background-color: white;
     padding: 15px;
     
-    border-top-right-radius: 0px;
-    border-top-left-radius: 0px;
     border-bottom-left-radius: 6px;
     border-bottom-right-radius: 6px;
 }

@@ -1,4 +1,5 @@
 import Button from '../components/Button'
+import Form from '../components/Form'
 import Layout from '../components/Layout'
 import Table from '../components/Table'
 import Client from '../core/Client'
@@ -27,7 +28,8 @@ export default function Home() {
     <div className={styles.index}>
       <Layout title="Cadastro Simples">
         <div style={{display: 'flex', justifyContent: 'flex-end'}}><Button>Novo Cliente</Button></div>
-        <Table clients={clients} selectClient={selectClient} deleteClient={deleteClient}></Table>
+        {/* <Table clients={clients} selectClient={selectClient} deleteClient={deleteClient}></Table> */}
+        <Form />
       </Layout>
       
     </div>
