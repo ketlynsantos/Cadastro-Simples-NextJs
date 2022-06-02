@@ -27,9 +27,11 @@ export default function Home() {
   return (
     <div className={styles.index}>
       <Layout title="Cadastro Simples">
-        <div style={{display: 'flex', justifyContent: 'flex-end'}}><Button>Novo Cliente</Button></div>
+        <div style={{display: 'flex', justifyContent: 'flex-end'}}>
+          <Button className="btn">Novo Cliente</Button>
+        </div>
         {/* <Table clients={clients} selectClient={selectClient} deleteClient={deleteClient}></Table> */}
-        <Form />
+        <Form client={clients[0]}/>
       </Layout>
       
     </div>

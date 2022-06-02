@@ -9,7 +9,7 @@ interface LayoutProps {
 export default function Layout(props: LayoutProps) {
     return (
         <div className={styles.layout}>
-            <Title className={styles.a}>{ props.title }</Title>
+            <Title>{ props.title }</Title>
             <hr />
             <div className={styles.children}>{ props.children }</div>
         </div>
