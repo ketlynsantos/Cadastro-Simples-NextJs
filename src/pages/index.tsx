@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import Button from '../components/Button'
 import Form from '../components/Form'
 import Layout from '../components/Layout'
@@ -14,6 +15,9 @@ export default function Home() {
     new Client('Daniel', 19, 'Daniel@gmail', '4'),
   ]
 
+  //Entre <> - 2 possiveis estados. Inicialmente começará sendo table
+  const [visible, setVisible] = useState<'table' | 'form'>('table')
+
   //Selecionar um cliente
   function selectClient(client: Client) {
     console.log(client.name)
@@ -24,16 +28,25 @@ export default function Home() {
     console.log(`Excluir: ${client.name} `)
   }
 
+  //Novo cliente
+  function saveClient(client: Client) {
+    console.log(`Novo Cliente: ${client.name}`)
+  }
+
   return (
     <div className={styles.index}>
       <Layout title="Cadastro Simples">
-        <div style={{display: 'flex', justifyContent: 'flex-end'}}>
-          <Button className="btn">Novo Cliente</Button>
-        </div>
-        {/* <Table clients={clients} selectClient={selectClient} deleteClient={deleteClient}></Table> */}
-        <Form client={clients[0]}/>
+        {visible === 'table' ? (
+          <>
+            <div className={styles.buttons}>
+              <Button className="btn" onClick={() => setVisible('form')}>Novo Cliente</Button>
+            </div>
+            <Table clients={clients} selectClient={selectClient} deleteClient={deleteClient}></Table>
+          </>
+        ): (
+          <Form client={clients[0]} changeClient={saveClient} cancel={() => setVisible('table')}/>
+        )}
       </Layout>
-      
     </div>
   )
 }

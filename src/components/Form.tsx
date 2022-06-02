@@ -6,6 +6,8 @@ import Button from "./Button";
 
 interface FormProps {
     client: Client
+    changeClient?: (client: Client) => void
+    cancel?: () => void
 }
 
 export default function Form(props: FormProps) {
@@ -26,8 +28,11 @@ export default function Form(props: FormProps) {
             <Input text="Email" value={email} onChange={setEmail}/>
 
             <div className={styles.buttons}>
-                <Button className="btnUpdate">Atualizar</Button>
-                <Button className="btnCancel">Cancelar</Button>
+                <Button className="btnUpdate" 
+                        onClick={() => props.changeClient?.(new Client(name, +age, email, id))}>
+                    {id ? 'Alterar' : 'Salvar'}
+                </Button>
+                <Button className="btnCancel" onClick={props.cancel}>Cancelar</Button>
             </div>
         </div>
     )

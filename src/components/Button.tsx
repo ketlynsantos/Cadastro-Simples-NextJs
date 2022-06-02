@@ -2,13 +2,14 @@ import styles from '../styles/Button.module.css'
 
 interface ButtonProps {
     className?: string 
-    children: any
+    children: any,
+    onClick?: () => void
 }
 
 export default function Button(props: ButtonProps) {
 
     return (
-        <button 
+        <button onClick={props.onClick}
             className={`
                 ${ props.className === 'btn'? styles.btn 
                     : props.className === 'btnUpdate' ? styles.btnUpdate
