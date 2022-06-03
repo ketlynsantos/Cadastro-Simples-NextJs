@@ -1,23 +1,37 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import ColectionClient from '../backend/db/ColectionClient'
 import Button from '../components/Button'
 import Form from '../components/Form'
 import Layout from '../components/Layout'
 import Table from '../components/Table'
 import Client from '../core/Client'
+import ClientRepository from '../core/ClientRepository'
 import styles from '../styles/Index.module.css'
 
 export default function Home() {
 
-  const clients = [
-    new Client('Ana', 34, 'Ana@gmail', '1'),
-    new Client('Pedro', 18, 'pedor@gmail', '2'),
-    new Client('Lucas', 20, 'Lucas@gmail', '3'),
-    new Client('Daniel', 19, 'Daniel@gmail', '4'),
-  ]
+  const repository: ClientRepository = new ColectionClient() 
 
+  // const clients = [
+  //   new Client('Ana', 34, 'Ana@gmail', '1'),
+  //   new Client('Pedro', 18, 'pedor@gmail', '2'),
+  //   new Client('Lucas', 20, 'Lucas@gmail', '3'),
+  //   new Client('Daniel', 19, 'Daniel@gmail', '4'),
+  // ]
+
+  const [client, setClient] = useState<Client>(Client.empty())
+  const [clients, setClients] = useState<Client[]>([])
   //Entre <> - 2 possiveis estados. Inicialmente começará sendo table
   const [visible, setVisible] = useState<'table' | 'form'>('table')
-  const [client, setClient] = useState<Client>(Client.empty())
+
+  useEffect(() => { allClients() }, [])
+  
+  function allClients() {
+    repository.allClients().then(clients => {
+      setClients(clients)
+      setVisible('table')
+    })
+  }
 
   //Selecionar um cliente
   function selectClient(client: Client) {
@@ -26,22 +40,24 @@ export default function Home() {
     console.log(client.name)
   }
 
+  //Salvar alteração
+  async function saveClient(client: Client) {
+    await repository.save(client)
+    allClients()
+    // console.log(`Novo Cliente: ${client.name}`)
+  }
+
   //Quando um cliente for excluido
   function deleteClient(client: Client) {
     console.log(`Excluir: ${client.name} `)
   }
 
-  //Salvar alteração
-  function saveClient(client: Client) {
-    setVisible('table')
-    console.log(`Novo Cliente: ${client.name}`)
-  }
-
-  //Novo Cliente
-  function newClient() {
+   //Novo Cliente
+   function newClient() {
     setClient(Client.empty())
     setVisible('form')
   }
+
 
   return (
     <div className={styles.index}>
