@@ -17,9 +17,12 @@ export default function Home() {
 
   //Entre <> - 2 possiveis estados. Inicialmente começará sendo table
   const [visible, setVisible] = useState<'table' | 'form'>('table')
+  const [client, setClient] = useState<Client>(Client.empty())
 
   //Selecionar um cliente
   function selectClient(client: Client) {
+    setClient(client)
+    setVisible('form')
     console.log(client.name)
   }
 
@@ -28,9 +31,16 @@ export default function Home() {
     console.log(`Excluir: ${client.name} `)
   }
 
-  //Novo cliente
+  //Salvar alteração
   function saveClient(client: Client) {
+    setVisible('table')
     console.log(`Novo Cliente: ${client.name}`)
+  }
+
+  //Novo Cliente
+  function newClient() {
+    setClient(Client.empty())
+    setVisible('form')
   }
 
   return (
@@ -39,12 +49,12 @@ export default function Home() {
         {visible === 'table' ? (
           <>
             <div className={styles.buttons}>
-              <Button className="btn" onClick={() => setVisible('form')}>Novo Cliente</Button>
+              <Button className="btn" onClick={newClient}>Novo Cliente</Button>
             </div>
             <Table clients={clients} selectClient={selectClient} deleteClient={deleteClient}></Table>
           </>
         ): (
-          <Form client={clients[0]} changeClient={saveClient} cancel={() => setVisible('table')}/>
+          <Form client={client} changeClient={saveClient} cancel={() => setVisible('table')}/>
         )}
       </Layout>
     </div>
