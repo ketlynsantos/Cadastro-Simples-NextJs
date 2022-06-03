@@ -7,3 +7,8 @@
     background-image: linear-gradient(to right bottom, #7881dd, #857fdd, #917ddd, #9d7bdc, #a879da);
     color: white;
 }
+
+.index .buttons {
+    display: flex;
+    justify-content: flex-end;
+}

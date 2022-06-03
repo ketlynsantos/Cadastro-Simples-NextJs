@@ -1,0 +1,24 @@
+.btn {
+    background-image: linear-gradient(to right, #757bc8, #8187dc);
+    border-radius: 5px;
+    color: white;
+    padding: 6px 15px;
+
+    margin-bottom: 15px;
+}
+
+.btnUpdate {
+    background-color: #6E96D1;
+    border-radius: 5px;
+    color: white;
+    padding: 6px 15px;
+
+    margin-right: 15px;
+}
+
+.btnCancel {
+    background-color: #D16E6E;
+    border-radius: 5px;
+    color: white;
+    padding: 6px 15px;
+}
