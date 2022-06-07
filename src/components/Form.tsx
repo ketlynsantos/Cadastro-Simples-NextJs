@@ -1,6 +1,6 @@
 import Input from "./Input";
 import styles from '../styles/Form.module.css'
-import { useState } from "react";
+import { useState, useEffect, useRef} from "react";
 import Client from "../core/Client";
 import Button from "./Button";
 
@@ -14,8 +14,15 @@ export default function Form(props: FormProps) {
 
     const id = props.client?.id
     const [name, setName] = useState(props.client?.name ?? '')
-    const [age, setAge] = useState(props.client?.age ?? 0)
+    const [age, setAge] = useState(props.client?.age ?? '')
     const [email, setEmail] = useState(props.client?.email ?? '')
+    const inputName = useRef(null)
+
+    useEffect(() => {
+        // inputName.current.focus()
+        console.log(inputName)
+    }, [])
+
 
     return(
         <div className={styles.form}>
@@ -23,7 +30,7 @@ export default function Form(props: FormProps) {
              { id ? (
                 <Input onlyReading text="Código" value={id}/>
             ): false} */}
-            <Input text="Nome" value={name} onChange={setName}/>
+            <Input text="Nome" value={name} onChange={setName} focus={true}/>
             <Input text="Idade" type="number" value={age} onChange={setAge}/>
             <Input text="Email" value={email} onChange={setEmail}/>
 

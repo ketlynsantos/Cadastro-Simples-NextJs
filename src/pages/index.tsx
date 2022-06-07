@@ -20,14 +20,9 @@ export default function Home() {
 
   return (
     <div className={styles.index}>
-      <Layout title="Cadastro Simples">
+      <Layout title="Cadastro de Clientes" onClick={newClient} visibleTable={visibleTable}>
         {visibleTable ? (
-          <>
-            <div className={styles.buttons}>
-              <Button className="btn" onClick={newClient}>Novo Cliente</Button>
-            </div>
             <Table clients={clients} selectClient={selectClient} deleteClient={deleteClient}></Table>
-          </>
         ): (
           <Form client={client} changeClient={saveClient} cancel={showTable}/>
         )}

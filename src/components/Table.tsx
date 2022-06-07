@@ -30,7 +30,7 @@ export default function Table(props: TableProps) {
     function renderData() {
         return props.clients?.map((client, i) => {
             return (
-                <tr key={client.id} style={{backgroundColor: `${i % 2 === 0 ? '#FDFDFD' : '#f5f5f5'}`}}>
+                <tr key={client.id} style={{backgroundColor: `${i % 2 === 0 ? '#60577908' : '#35507014'}`}}>
                     <td>{ client.id }</td>
                     <td>{ client.name }</td>
                     <td>{ client.age }</td>
