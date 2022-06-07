@@ -5,16 +5,30 @@
 
     /* background-color: white; */
     color: black;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+
+}
+
+.layout .header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+
+    background-color: white;
+    border-top-right-radius: 6px;
+    border-top-left-radius: 6px;
 }
 
 .layout .children {
-    background-color: white;
     padding: 15px;
     
+    background-color: white;
     border-bottom-left-radius: 6px;
     border-bottom-right-radius: 6px;
 }
 
 .layout hr {
-    border: 2px solid transparent;
+    border: 5px solid transparent;
 }

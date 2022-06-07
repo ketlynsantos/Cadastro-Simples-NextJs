@@ -1,12 +1,8 @@
 .title {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-
-    padding: 15px;
-    font-size: 25px;
-
-    background-color: white;
-    border-top-right-radius: 6px;
-    border-top-left-radius: 6px;
+    align-items: center;
+    font-size: 28px;
+    font-weight: 600;
+    color: #223449;
+    letter-spacing: 3px;
 }

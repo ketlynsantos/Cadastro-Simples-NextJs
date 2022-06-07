@@ -13,7 +13,7 @@ export default class Client {
         this.#id = id
     }
 
-    static empty() { return new Client('', 0, '') }
+    static empty() { return new Client('', null, '') }
 
     get id() { return this.#id }
 

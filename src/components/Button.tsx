@@ -1,8 +1,8 @@
 import styles from '../styles/Button.module.css'
 
 interface ButtonProps {
-    className?: string 
-    children: any,
+    className?: string
+    children: any
     onClick?: () => void
 }
 

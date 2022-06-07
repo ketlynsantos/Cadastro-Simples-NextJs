@@ -1,14 +1,15 @@
 .btn {
-    background-image: linear-gradient(to right, #757bc8, #8187dc);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    background-color: #445274;
     border-radius: 5px;
     color: white;
     padding: 6px 15px;
-
-    margin-bottom: 15px;
 }
 
 .btnUpdate {
-    background-color: #6E96D1;
+    background-color: #355070;
     border-radius: 5px;
     color: white;
     padding: 6px 15px;
@@ -17,7 +18,7 @@
 }
 
 .btnCancel {
-    background-color: #D16E6E;
+    background-color: #D66363;
     border-radius: 5px;
     color: white;
     padding: 6px 15px;
